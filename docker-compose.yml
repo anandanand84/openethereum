@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  openethereum:
+    image: openethereum/openethereum:latest
+    volumes:
+      - "./openethereum/:/home/openethereum/.local/share/openethereum/"
+    command:
+      - "--base-path"
+      - "/home/openethereum/.local/share/openethereum"
+      - "--config"
+      - "/home/openethereum/.local/share/openethereum/config.toml"
+      - "--no-periodic-snapshot"
+      - "--warp"
+      - "--warp-barrier"
+      - "10400000"
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+      - "30303:30303"
+      - "9091:9091"
+      - "9092:9092"
